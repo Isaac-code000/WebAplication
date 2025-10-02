@@ -33,8 +33,9 @@ namespace ContatosWebMvc.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("Nome")
-                        .HasColumnType("int");
+                    b.Property<string>("Nome")
+                    .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Telefone")
                         .IsRequired()
