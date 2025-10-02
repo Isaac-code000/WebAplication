@@ -21,23 +21,38 @@ namespace ContatosWebMvc.Controllers
         {
             return View();
         }
-        public IActionResult Editar()
+        public IActionResult Editar(int id)
         {
-            return View();
+            ContatoModel contato = _contatoRepositorio.Buscar(id); 
+            return View(contato);
         }
-        public IActionResult Apagar()
+        public IActionResult Apagar(int id)
         {
-            return View();
+            ContatoModel contato = _contatoRepositorio.Buscar(id);
+            return View(contato);
         }
-        public IActionResult ApagarContato()
+
+        public IActionResult Deletar(int id)
         {
-            return View();
+            _contatoRepositorio.Apagar(id);
+            return RedirectToAction("Index");
         }
+
         [HttpPost]
         public IActionResult Criar(ContatoModel contato)
         {
             _contatoRepositorio.Adicionar(contato);
             return RedirectToAction("Index");  
         }
+        [HttpPost]
+        public IActionResult Editar(ContatoModel contato)
+        {
+            _contatoRepositorio.Editar(contato);
+            return RedirectToAction("Index");
+        }
+        
+
+
+
     }
 }

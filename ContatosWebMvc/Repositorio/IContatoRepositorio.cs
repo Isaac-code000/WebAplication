@@ -6,6 +6,10 @@ namespace ContatosWebMvc.Repositorio
     {
         ContatoModel Adicionar(ContatoModel contato);
         List<ContatoModel> Listar();
-       
+        bool Apagar(int id);
+        ContatoModel Buscar(int id);
+
+        ContatoModel Editar(ContatoModel contato);   
+
     }
 }
