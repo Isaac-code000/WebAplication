@@ -10,10 +10,8 @@ namespace ContatosWebMvc.Controllers
 
         public IActionResult Index()
         {
-            HomeModel home = new HomeModel();
-            home.Nome = "Isaac";
-            home.Email = "isaac.cade18@gmail.com";
-            return View(home);
+
+            return View();
         }
 
         public IActionResult Privacy()

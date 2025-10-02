@@ -1,12 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ContatosWebMvc.Data;
+using ContatosWebMvc.Models;
+using ContatosWebMvc.Repositorio;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ContatosWebMvc.Controllers
 {
     public class ContatoController : Controller
     {
+        private readonly IContatoRepositorio _contatoRepositorio;
+        public ContatoController(IContatoRepositorio contatoRepositorio) {
+            _contatoRepositorio = contatoRepositorio;
+            
+        }  
         public IActionResult Index()
         {
-            return View();
+            List<ContatoModel> listaContatos = _contatoRepositorio.Listar();
+            return View(listaContatos);
         }
         public IActionResult Criar()
         {
@@ -23,6 +32,12 @@ namespace ContatosWebMvc.Controllers
         public IActionResult ApagarContato()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult Criar(ContatoModel contato)
+        {
+            _contatoRepositorio.Adicionar(contato);
+            return RedirectToAction("Index");  
         }
     }
 }
