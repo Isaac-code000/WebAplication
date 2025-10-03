@@ -15,15 +15,18 @@
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Email</label>
         <input asp-for="Email" type="email" class="form-control" placeholder="Informe o Email do contato">
+        @Html.ValidationMessageFor(x => x.Email)
 
     </div>
     <div class="mb-3">
         <label for="nome" class="form-label">Nome</label>
         <input asp-for="Nome" type="text" class="form-control" placeholder="Informe o Nome do contato">
+        @Html.ValidationMessageFor(x => x.Nome)
     </div>
     <div class="mb-3">
         <label for="telefone" class="form-label">Telefone</label>
         <input asp-for="Telefone" type="text" class="form-control" placeholder="Digite o celular do contato">
+        @Html.ValidationMessageFor(x => x.Telefone)
     </div>
 
     <button asp-controller="Contato" type="submit" class="btn btn-success ">Alterar</button>

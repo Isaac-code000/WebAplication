@@ -11,9 +11,12 @@ namespace ContatosWebMvc.Repositorio
         }
         public ContatoModel Adicionar(ContatoModel contato)
         {
-            _BdContext.Contatos.Add(contato);
+          
+             _BdContext.Contatos.Add(contato);
             _BdContext.SaveChanges();   
             return contato;
+            
+       
         }
 
         public ContatoModel Editar(ContatoModel contato)
