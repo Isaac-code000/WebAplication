@@ -100,17 +100,6 @@ namespace ContatosWebMvc.Controllers
                 TempData["MensagemErro"] = $"Não conseguimos alterar seu contato,tente novamente, detalhes do erro:{erro.Message}";
                 return RedirectToAction("Index");
             }
-
-
-
-
-
-
-
         }
-
-
-
-
     }
 }
